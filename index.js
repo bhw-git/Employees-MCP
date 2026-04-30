@@ -44,6 +44,7 @@ server.tool(
     firstName: z.string().describe("Employee first name"),
     lastName: z.string().describe("Employee last name"),
     email: z.string().describe("Employee email"),
+    departmentId: z.string().describe("Department Id"),
   },
   async (employeeDto) => {
     const res = await api.post("/api/employees", employeeDto);
@@ -59,6 +60,7 @@ server.tool(
     firstName: z.string().optional(),
     lastName: z.string().optional(),
     email: z.string().optional(),
+    departmentId: z.string().optional(),
   },
   async ({ id, ...employeeDto }) => {
     const res = await api.put(`/api/employees/${id}`, employeeDto);
